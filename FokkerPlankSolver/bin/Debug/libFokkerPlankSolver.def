@@ -1,0 +1,6 @@
+EXPORTS
+    DllMain @1
+    create_solver @2
+    delete_solver @3
+    get_grids @4
+    solve @5
