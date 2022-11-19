@@ -1,7 +1,6 @@
 import ctypes
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import os
 import time
 import matplotlib as mpl
@@ -9,7 +8,7 @@ import matplotlib as mpl
 Method convergence test, see sect 7 in Readme
 '''
 
-libc=ctypes.cdll.LoadLibrary('FokkerPlankSolver.dll')
+libc=ctypes.cdll.LoadLibrary(os.getcwd()+'//FokkerPlankSolver.dll')
 
 libc.get_grids.restype=None
 libc.create_solver.restype=None
@@ -274,7 +273,7 @@ front_size_tick=16
 front_size_labels=16
 def plot_3D(x,y,z1,z2,labels,legend,zscale='normal'):
     fig=plt.figure()
-    axes=Axes3D(fig)
+    axes=fig.add_subplot(projection='3d')
     axes.plot_wireframe(x,y,z1,color='black',label=legend[0])
     axes.plot_wireframe(x, y, z2, color='red',label=legend[1])
     axes.legend()

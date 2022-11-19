@@ -1,14 +1,14 @@
 import ctypes
 import numpy as np
+import os
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import time
 
 '''
 Turbulent diffusion test, see sect 8 in Readme
 '''
 
-libc=ctypes.cdll.LoadLibrary('FokkerPlankSolver.dll')
+libc=ctypes.cdll.LoadLibrary(os.getcwd()+'//FokkerPlankSolver.dll')
 
 libc.get_grids.restype=None
 libc.create_solver.restype=None
@@ -157,8 +157,10 @@ def plot_3D(x,y,z,title,labels):
     front_size_tick=16
     front_size_labels=16
     fig=plt.figure()
-    fig.canvas.set_window_title(title)
-    axes=Axes3D(fig)
+
+    axes=fig.add_subplot(projection='3d')
+    axes.set_title(title)
+
     axes.plot_wireframe(x,y,z,color='black')
 
     plt.xticks(fontsize=front_size_tick)

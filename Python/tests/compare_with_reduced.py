@@ -1,7 +1,7 @@
 import ctypes
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+import os
 import time
 from scipy.integrate import quad
 
@@ -9,7 +9,7 @@ from scipy.integrate import quad
 Compare with reduced equation, see sect 9 in Readme
 '''
 
-libc=ctypes.cdll.LoadLibrary('FokkerPlankSolver.dll')
+libc=ctypes.cdll.LoadLibrary(os.getcwd()+'//FokkerPlankSolver.dll')
 
 libc.get_grids.restype=None
 libc.create_solver.restype=None
@@ -280,8 +280,9 @@ def plot_3D(x,y,z,x2,y2,z2,title,labels,legend):
     front_size_tick=16
     front_size_labels=16
     fig=plt.figure()
-    fig.canvas.set_window_title(title)
-    axes=Axes3D(fig)
+    
+    axes=fig.add_subplot(projection='3d')
+    axes.set_title(title)
 
     axes.plot_wireframe(x,y,z,color='black',label=legend[0])
     axes.plot_wireframe(x2, y2, z2, color='red', label=legend[1])
