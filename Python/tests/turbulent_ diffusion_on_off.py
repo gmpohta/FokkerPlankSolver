@@ -8,7 +8,15 @@ import time
 Turbulent diffusion test, see sect 8 in Readme
 '''
 
-libc=ctypes.cdll.LoadLibrary(os.getcwd()+'//FokkerPlankSolver.dll')
+if os.name == 'posix':
+    path = os.path.abspath(os.path.join(os.getcwd(), "../../fokker_plank_solver/fokker_plank_solver.so"))
+elif os.name == 'nt':
+    path = os.path.abspath(os.path.join(os.getcwd(), "../../fokker_plank_solver/fokker_plank_solver.dll"))
+else:
+    print('This operating system is not yet supported')
+    exit()
+
+libc=ctypes.cdll.LoadLibrary(path)
 
 libc.get_grids.restype=None
 libc.create_solver.restype=None
