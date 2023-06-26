@@ -13,7 +13,7 @@ $ cd fokker_plank_solver
 if you are working on windows:
 ```
 $ g++ -c main.cpp solver.cpp -fPIC -O
-$	g++ -shared -static -o fokker_plank_solver.dll main.o solver.o
+$ g++ -shared -static -o fokker_plank_solver.dll main.o solver.o
 ```
 if you are working on linux:
 ```
