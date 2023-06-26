@@ -3,7 +3,7 @@
 See Readme.pdf
 
 ## Install project
-First you must to install g++ compiler and python. 
+First you must to install g++ compiler and Python. 
 Compile dynamic library:
 ```
 $ git clone https://github.com/gmpohta/FokkerPlankSolver.git
