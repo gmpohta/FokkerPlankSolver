@@ -23,7 +23,8 @@ If you are working on linux:
 $ git clone https://github.com/gmpohta/FokkerPlankSolver.git
 $ cd FokkerPlankSolver
 $ cd fokker_plank_solver
-$ make compile_so
+$ g++ -c main.cpp solver.cpp -fPIC -O
+$ g++ -shared -static-libstdc++ -o fokker_plank_solver.so main.o solver.o
 $ cd ..
 $ cd Python
 $ python3 -m venv ./venv
