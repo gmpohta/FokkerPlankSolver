@@ -173,7 +173,8 @@ def plot_3D(x,y,z,title,labels):
 
     plt.xticks(fontsize=front_size_tick)
     plt.yticks(fontsize=front_size_tick)
-    for t_ax in axes.zaxis.get_major_ticks(): t_ax.label.set_fontsize(front_size_tick)
+    axes.zaxis.set_tick_params(labelsize=front_size_tick)
+
     axes.set_xlabel(labels['x'],fontsize=front_size_labels,labelpad=10)
     axes.set_ylabel(labels['y'],fontsize=front_size_labels,labelpad=10)
     axes.zaxis.set_rotate_label(False)

@@ -286,9 +286,11 @@ def plot_3D(x,y,z1,z2,labels,legend,zscale='normal'):
     axes.plot_wireframe(x,y,z1,color='black',label=legend[0])
     axes.plot_wireframe(x, y, z2, color='red',label=legend[1])
     axes.legend()
+
     plt.xticks(fontsize=front_size_tick)
     plt.yticks(fontsize=front_size_tick)
-    for t_ax in axes.zaxis.get_major_ticks(): t_ax.label.set_fontsize(front_size_tick)
+    axes.zaxis.set_tick_params(labelsize=front_size_tick)
+
     axes.set_xlabel(labels['x'],fontsize=front_size_labels,labelpad=10)
     axes.set_ylabel(labels['y'],fontsize=front_size_labels,labelpad=10)
     axes.zaxis.set_rotate_label(False)
